@@ -23,3 +23,22 @@ Shows a line graph of total MRP across item types, sorted to visualize top and l
 
  100% Stacked Column Chart: Fat Content in Outlet
 Displays the proportion of item fat content (Low Fat, Regular) across outlet types using MRP as a weight
+
+Dax Measures Used:
+Average MRP = AVERAGE('Sheet1'[Item_MRP])
+Total Items = DISTINCTCOUNT('Sheet1'[Item_Identifier])
+Total Outlets = DISTINCTCOUNT('Sheet1'[Outlet_Identifier])
+Total MRP = AVERAGE('Sheet1'[Item_MRP]) -- shown as KPI
+Regular Count = CALCULATE(COUNTROWS('Sheet1'), 'Sheet1'[Item_Fat_Content] = "Regular")
+Low Fat Count = CALCULATE(COUNTROWS('Sheet1'), 'Sheet1'[Item_Fat_Content] = "Low Fat")
+
+Use Cases:
+Identify high-value product categories.
+
+Analyze item pricing distribution across different outlets.
+
+Monitor how fat content affects MRP performance.
+
+Support inventory, pricing, or marketing decisions.
+
+
